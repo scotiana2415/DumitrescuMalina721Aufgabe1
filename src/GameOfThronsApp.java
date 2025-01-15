@@ -3,8 +3,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -118,4 +117,30 @@ public class GameOfThronsApp {
         }
         return ereignisse;
     }
+
+    public void displayMembersByInitial(List<Ereignis> ereignisse) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an uppercase letter: ");
+        String input = scanner.nextLine();
+
+        if (input.length() != 1 || !Character.isUpperCase(input.charAt(0))) {
+            System.out.println("Invalid input. Please enter a single uppercase letter.");
+            return;
+        }
+
+        char initial = input.charAt(0);
+        Set<String> uniqueNames = new HashSet<>();
+
+        for (Ereignis ereignis : ereignisse) {
+            String name = ereignis.getMitgliedsname();
+            if (name.charAt(0) == initial) {
+                uniqueNames.add(name);
+            }
+        }
+
+        for (String name : uniqueNames) {
+            System.out.println(name);
+        }
+    }
 }
+
