@@ -1,0 +1,16 @@
+<logs>
+    <log>
+        <Datum>2016-06-26</Datum>
+        <Ereignis>Sieg in der Schlacht der Bastarde</Ereignis>
+        <Haus>Stark</Haus>
+        <Id>1</Id>
+        <Mitgliedsname>Jon Snow</Mitgliedsname>
+    </log>
+    <log>
+        <Datum>2016-12-11</Datum>
+        <Ereignis>Krönung zur Königin</Ereignis>
+        <Haus>Lannister</Haus>
+        <Id>2</Id>
+        <Mitgliedsname>Cersei Lannister</Mitgliedsname>
+    </log>
+</logs>
