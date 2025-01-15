@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         GameOfThronsApp app = new GameOfThronsApp();
         Scanner input = new Scanner(System.in);
 
@@ -12,11 +12,11 @@ public class Main {
 
         // Hardcoded file path and type
         String basePath = System.getProperty("user.dir") + "/src/";
-        String filePath = basePath +  "data.xml"; // Change this to process a different file type
+        String filePath = basePath +  "data.xml";
         //String outputPath = basePath + "ergebnis.txt";
-        List<Ereignis> ereignis = app.leseXML(filePath); // Change `leseCSV` to the corresponding method for the file type
+        List<Ereignis> ereignis = app.leseXML(filePath);
         System.out.println("Processing file: " + filePath);
         app.displayMembersByInitial(ereignis);
-
+        app.displayMembersByInitial(ereignis);
     }
 }

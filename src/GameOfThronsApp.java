@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class GameOfThronsApp {
     public static final Pattern ID_PATTERN = Pattern.compile("\\p{javaSpaceChar}*<id>(.*)</id>");
@@ -133,7 +134,7 @@ public class GameOfThronsApp {
 
         for (Ereignis ereignis : ereignisse) {
             String name = ereignis.getMitgliedsname();
-            if (name.charAt(0) == initial) {
+            if (name != null && name.charAt(0) == initial) {
                 uniqueNames.add(name);
             }
         }
@@ -142,5 +143,17 @@ public class GameOfThronsApp {
             System.out.println(name);
         }
     }
+
+    public void displayStarkEventsSortedByDate(List<Ereignis> ereignisse) {
+        List<Ereignis> starkEvents = ereignisse.stream()
+                .filter(e -> e.getHaus() == Haus.Stark)
+                .sorted(Comparator.comparing(Ereignis::getDatum))
+                .collect(Collectors.toList());
+
+        for (Ereignis ereignis : starkEvents) {
+            System.out.println(ereignis.getDatum() + ": " + ereignis.getMitgliedsname() + " - " + ereignis.getEreignis());
+        }
+    }
 }
+
 
